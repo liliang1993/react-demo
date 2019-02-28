@@ -2,12 +2,42 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom"
-import Button from 'antd/lib/button';
-const pageA = () => (
-  <div>
-    页面1
-  </div>
-);
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+  console.log('state', state);
+  return {
+    tiger: state
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    PayIncrease: () => dispatch({ type: '涨工资' }),
+    PayDecrease: () => dispatch({ type: '扣工资'}),
+  }
+}
+
+class pageA extends Component {
+  componentDidMount() {
+    console.log('props', this.props)
+  } 
+  render() {
+    const { PayIncrease, PayDecrease } = this.props;
+    return (
+      <div className="pageA"> 
+          <h2>当月工资为{this.props.tiger}</h2>
+           <button onClick={PayIncrease}> 升职加薪 </button>
+           <button onClick={PayDecrease}> 迟到罚款  </button>
+      </div>
+      // <div className="App">
+      //   <Button type="primary">Button</Button>
+      // </div>
+    );
+  }
+}
+
+let _pageA = connect(mapStateToProps, mapDispatchToProps)(pageA);
 
 const pageB = () => (
   <div>
@@ -27,8 +57,10 @@ const pageD = () => (
   </div>
 );
 
+
+
 const BasicLayout = () => (
-  <div class='basics'>
+  <div>
     <header>
       <ul>
         <li>
@@ -39,8 +71,8 @@ const BasicLayout = () => (
         </li>
       </ul>
     </header>
-    <div class='container'>
-        <Route path='/pagea' exact component={pageA}></Route>
+    <div>
+        <Route path='/pagea' exact component={_pageA}></Route>
         <Route path='/pageb' component={pageB}></Route>
         <Route path='/pagec' exact component={pageC}></Route>
         <Route path='/paged' exact component={pageD}></Route>
@@ -51,30 +83,18 @@ const BasicLayout = () => (
 class App extends Component {
   render() {
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      // </div>
-      // <Router>
-      //   <BasicLayout></BasicLayout>
-      // </Router>
-      <div className="App">
-        <Button type="primary">Button</Button>
+      <div> 
+          <Router>
+            <BasicLayout></BasicLayout>
+          </Router>
       </div>
+      // <div className="App">
+      //   <Button type="primary">Button</Button>
+      // </div>
     );
   }
 }
+
+App = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export default App;
