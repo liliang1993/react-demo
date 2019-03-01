@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Layout, Icon, message } from 'antd';
+import { NavBar } from 'antd-moblie';
+
 
 export default class BasicLayout extends Component {
   render() {
