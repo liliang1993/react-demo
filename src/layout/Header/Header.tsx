@@ -7,7 +7,7 @@ const { Header } = Layout
 const { Search } = Input
 
 interface IProps {
-  fetchArtice: (payload: object) => void
+  // fetchArtice: (payload: object) => void
 }
 
 const HeaderDom = (props: IProps) => {
@@ -27,6 +27,7 @@ const HeaderDom = (props: IProps) => {
               style={{ marginRight: 5 }}
               dangerouslySetInnerHTML={item.icon}
             />
+            {item.title}
           </Link>
         </Menu.Item>
       ))}
@@ -61,22 +62,22 @@ const HeaderDom = (props: IProps) => {
               ))}
             </Col>
             <Col
-            xs={24}
-            sm={0}
-            md={{ span: 6, offset: 1 }}
-            xl={{ span: 6, offset: 1 }}
-            xxl={{ span: 6, offset: 1 }}>
-            <Search
-              placeholder="输入搜索标题"
-              onSearch={value => {
-                props.fetchArticle({
-                  pageIndex: 1,
-                  pageSize: 10,
-                  title: value
-                })
-              }}
-              className="search-input"
-            />
+              xs={24}
+              sm={0}
+              md={{ span: 6, offset: 1 }}
+              xl={{ span: 6, offset: 1 }}
+              xxl={{ span: 6, offset: 1 }}>
+              <Search
+                placeholder="输入搜索标题"
+                onSearch={value => {
+                  // props.fetchArticle({
+                  //   pageIndex: 1,
+                  //   pageSize: 10,
+                  //   title: value
+                  // })
+                }}
+                className="search-input"
+              />
             </Col>
           </Row>
         </Col>
