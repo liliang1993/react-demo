@@ -1,9 +1,10 @@
 import { BackTop, Col, Layout, Row } from 'antd'
-import React, { Component } from 'react'
-import { ReactHTML } from 'react'
+import React, { Component, ReactHTML } from 'react'
+import { Route } from 'react-router-dom'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import Sidebar, { IInfo } from './Sidebar/Sidebar'
+import Articles from '../views/Articles/Articles'
 
 const { Content } = Layout
 
@@ -20,8 +21,10 @@ class BasicLayout extends Component<IProps> {
         <BackTop />
         <Header />
         <Layout>
-          <Content>{children}</Content>
-          <Sidebar info={info} />
+          <Content>
+            <Route path="/articles" componen={Articles} />
+          </Content>
+          <Sidebar />
         </Layout>
         <Footer />
       </Layout>

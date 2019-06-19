@@ -1,4 +1,5 @@
 import { Card, Tag, Tooltip } from 'antd'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.less'
 
@@ -24,16 +25,16 @@ export interface IProps {
   info: IInfo
 }
 
-const Sidebar = (props: IProps) => {
-  const {
-    tag,
-    present,
-    access,
-    ArticleNum,
-    name,
-    authorImg,
-    lastArticle
-  } = props.info
+const Sidebar = () => {
+  // const {
+  //   tag,
+  //   present,
+  //   access,
+  //   ArticleNum,
+  //   name,
+  //   authorImg,
+  //   lastArticle
+  // } = props.info
   return <div className="Sidebar" />
 }
 
