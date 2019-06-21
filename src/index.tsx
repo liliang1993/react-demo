@@ -1,4 +1,4 @@
-import { LocaleProvider } from 'antd'
+// import { LocaleProvider } from 'antd'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(reducer, applyMiddleware(sagaMiddleware))
 // sagaMiddleware.run()
+console.log('process.env.REACT_APP_BASEURL', process.env.REACT_APP_BASEURL)
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,9 +1,9 @@
-import { Card, Tag, Tooltip } from 'antd'
+// import { Card } from 'antd'
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import './style.less'
 
-const { Meta } = Card
+// const { Meta } = Card
 
 interface ITag {
   title: string

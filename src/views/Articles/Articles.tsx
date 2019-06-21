@@ -1,7 +1,7 @@
-import { Card, Pagination } from 'antd'
+// import { Card, Pagination } from 'antd'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { IPayload } from '../../types'
+// import { Link } from 'react-router-dom'
+// import { IPayload } from '../../types'
 import './style.less'
 
 interface ITag {
@@ -18,16 +18,16 @@ export interface IArticle {
   abstract: string
 }
 
-interface IHistory {
-  push: (pathname: string) => void
-}
+// interface IHistory {
+//   push: (pathname: string) => void
+// }
 
-interface IArticles {
-  articles: IArticle[]
-  history: IHistory
-  total: number
-  fetchArticle: (payload: IPayload) => void
-}
+// interface IArticles {
+//   articles: IArticle[]
+//   history: IHistory
+//   total: number
+//   fetchArticle: (payload: IPayload) => void
+// }
 
 export default class Articles extends React.Component {
   render() {

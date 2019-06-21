@@ -1,21 +1,21 @@
-import { BackTop, Col, Layout, Row } from 'antd'
+import { BackTop, Layout } from 'antd'
 import React, { Component, ReactHTML } from 'react'
 import { Route } from 'react-router-dom'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
-import Sidebar, { IInfo } from './Sidebar/Sidebar'
+import Sidebar from './Sidebar/Sidebar'
 import Articles from '../views/Articles/Articles'
 
 const { Content } = Layout
 
 interface IProps {
-  info: IInfo
+  info: object
   children: ReactHTML
 }
 
 class BasicLayout extends Component<IProps> {
   render() {
-    const { info, children } = this.props
+    const { info } = this.props
     return (
       <Layout>
         <BackTop />
@@ -24,7 +24,7 @@ class BasicLayout extends Component<IProps> {
           <Content>
             <Route path="/articles" componen={Articles} />
           </Content>
-          <Sidebar />
+          <Sidebar info={info} />
         </Layout>
         <Footer />
       </Layout>

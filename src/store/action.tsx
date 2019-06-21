@@ -1,6 +1,6 @@
 import { GET_INFO, SAVE_INFO } from './actionTypes'
-import { IPayload } from '../types'
-import { userInfo } from 'os'
+// import { IPayload } from '../types'
+// import { userInfo } from 'os'
 
 export interface ISaveInfo {
   type: SAVE_INFO
@@ -18,7 +18,7 @@ export interface IGetInfo {
   type: GET_INFO
 }
 
-export const getInfo = (info: object): IGetInfo => {
+export const getInfo = () => {
   return {
     type: GET_INFO
   }

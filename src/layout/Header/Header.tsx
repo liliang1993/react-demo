@@ -1,4 +1,4 @@
-import { Col, Dropdown, Icon, Input, Layout, Menu, Row } from 'antd'
+import { Col, Input, Layout, Row } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.less'
@@ -17,22 +17,22 @@ const HeaderDom = (props: IProps) => {
     { title: '说说', icon: { __html: '&#xe6a1;' }, url: '/say' },
     { title: '收藏', icon: { __html: '&#xe60e;' }, url: '/collect' }
   ]
-  const menu = (
-    <Menu className="menu">
-      {headerTitle.map(item => (
-        <Menu.Item key={item.title} className="header-title-item">
-          <Link to={item.url}>
-            <span
-              className="icon-font"
-              style={{ marginRight: 5 }}
-              dangerouslySetInnerHTML={item.icon}
-            />
-            {item.title}
-          </Link>
-        </Menu.Item>
-      ))}
-    </Menu>
-  )
+  // const menu = (
+  //   <Menu className="menu">
+  //     {headerTitle.map(item => (
+  //       <Menu.Item key={item.title} className="header-title-item">
+  //         <Link to={item.url}>
+  //           <span
+  //             className="icon-font"
+  //             style={{ marginRight: 5 }}
+  //             dangerouslySetInnerHTML={item.icon}
+  //           />
+  //           {item.title}
+  //         </Link>
+  //       </Menu.Item>
+  //     ))}
+  //   </Menu>
+  // )
   return (
     <div className="header">
       <Header>
