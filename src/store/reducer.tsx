@@ -4,6 +4,7 @@ import { InfoAction } from './action'
 const info = (state: object = {}, action: InfoAction): object => {
   switch (action.type) {
     case GET_INFO:
+      console.log('222')
       return state
     case SAVE_INFO:
       return {

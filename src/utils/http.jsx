@@ -1,9 +1,8 @@
 import axios from 'axios'
 import { message } from 'antd'
 
-console.log('process.env.REACT_APP_BASEURL', process.env.REACT_APP_BASEURL)
 axios.defaults.timeout = 5000
-axios.defaults.headers.poest['Content-Type'] = 'application/json;charset=UTF-8'
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL
 
 const requestList = []
@@ -40,8 +39,8 @@ axios.interceptors.response.use(
     const request =
       JSON.stringify(response.config.url) + JSON.stringify(response.config.data)
     requestList.splice(requestList.findIndex(item => item === request), 1)
-    if (requestList.data.code === 9000401) {
-    }
+    // if (requestList.data.code === 9000401) {
+    // }
     // 对响应数据做点什么，允许在数据返回客户端前，修改响应的数据
     // 如果只需要返回体中数据，则如下，如果需要全部，则 return response 即可
     return response
@@ -64,7 +63,7 @@ const request = opts => {
   let options = {
     url,
     methods,
-    [methods == 'get' ? 'params' : 'data']: data,
+    [methods === 'get' ? 'params' : 'data']: data,
     ...configs
   }
   return new Promise((resolve, reject) => {

@@ -25,7 +25,7 @@ export interface IProps {
   info: IInfo
 }
 
-const Sidebar = () => {
+const Sidebar = (props: IProps) => {
   // const {
   //   tag,
   //   present,
@@ -34,7 +34,7 @@ const Sidebar = () => {
   //   name,
   //   authorImg,
   //   lastArticle
-  // } = props.info
+  // } = this.props.info
   return <div className="Sidebar" />
 }
 

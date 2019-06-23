@@ -1,17 +1,19 @@
 // import { LocaleProvider } from 'antd'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './style/reset.less'
+import './font/font.less'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import reducer from './redux/reducer'
+import reducer from './store'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import { rootSaga } from './store/saga'
 import { Provider } from 'react-redux'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(reducer, applyMiddleware(sagaMiddleware))
-// sagaMiddleware.run()
+sagaMiddleware.run(rootSaga)
 console.log('process.env.REACT_APP_BASEURL', process.env.REACT_APP_BASEURL)
 
 ReactDOM.render(

@@ -6,6 +6,7 @@ import { request } from '../utils/http'
  * @return:
  */
 export const getUserInfo = (data: object): Promise<any> => {
+  console.log('getUserInfo')
   return request({
     methods: 'get',
     url: '/get-info',
